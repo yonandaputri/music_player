@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/colorCard"
+    app:cardCornerRadius="20dp" >
+
+    <LinearLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:background="@color/colorButton"
+            android:id="@+id/image_artist"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:layout_width="130dp"
+            android:scaleType="centerCrop"/>
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:fontFamily="@font/alegreya"
+                android:id="@+id/title_song"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="40dp"
+                android:layout_width="wrap_content"
+                android:text="Title Song"
+                android:textSize="30dp" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:fontFamily="@font/alegreya"
+                android:id="@+id/artist_name"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Singer"
+                android:textSize="20dp"
+                android:layout_marginBottom="10dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
