@@ -3,42 +3,44 @@ package com.example.music_player.song.recyclerAdapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
+import android.widget.ImageButton
 import android.widget.TextView
-import androidx.core.os.bundleOf
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.music_player.R
-import com.example.music_player.song.model.SongModel
-import com.squareup.picasso.Picasso
+import com.example.music_player.room.artistWithSongs.ArtistWithSongs
 
-class SongRecycleAdapter(private val songList: List<SongModel>) : RecyclerView.Adapter<SongViewHolder>() {
+class SongRecycleAdapter(private val songList: ArtistWithSongs) : RecyclerView.Adapter<SongViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SongViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.music_item_layout, parent, false)
+            .inflate(R.layout.artist_song_item_layout, parent, false)
         return SongViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        return songList.size
+        return songList.songs.size
     }
 
     override fun onBindViewHolder(holder: SongViewHolder, position: Int) {
-        println("$position ${songList[position].title}")
-        holder.songTitle.text = songList[position].title
-        holder.artistName.text = songList[position].artist
-        Picasso.get().load(songList[position].urlArtistPhoto).into(holder.imageArtist)
-
-        val bundle = bundleOf(Pair("position", position))
-        holder.itemView.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_listSong_to_showMusic, bundle)
+        println("$position ${songList.songs[position].title}")
+        holder.songTitle.text = songList.songs[position].title
+        holder.songDuration.text = songList.songs[position].durationSong
+        var playMusic = true
+        holder.playMusicButton.setBackgroundResource(R.drawable.ic_play_arrow_24dp)
+        holder.playMusicButton.setOnClickListener{
+            if (playMusic) {
+                holder.playMusicButton.setBackgroundResource(R.drawable.ic_pause_24dp)
+                playMusic = false
+            } else {
+                holder.playMusicButton.setBackgroundResource(R.drawable.ic_play_arrow_24dp)
+                playMusic = true
+            }
         }
     }
 }
 
 class SongViewHolder(v: View) : RecyclerView.ViewHolder(v) {
     val songTitle = v.findViewById<TextView>(R.id.title_song)
-    val artistName = v.findViewById<TextView>(R.id.artist_name)
-    val imageArtist = v.findViewById<ImageView>(R.id.image_artist)
+    val songDuration = v.findViewById<TextView>(R.id.song_duration)
+    val playMusicButton = v.findViewById<ImageButton>(R.id.play_song_button)
 }

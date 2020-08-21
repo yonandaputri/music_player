@@ -2,11 +2,12 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout2"
+    android:id="@+id/frameLayout4"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBackground"
-    tools:context=".song.screen.AddSong">
+    tools:context=".song.screen.AddArtist">
+
 
     <LinearLayout
         android:layout_width="0dp"
@@ -41,12 +42,12 @@
                     app:boxCornerRadiusTopStart="20dp">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/input_song_name"
+                        android:id="@+id/input_artist_name"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:backgroundTint="@color/colorInputText"
                         android:fontFamily="@font/alegreya"
-                        android:hint="Title"
+                        android:hint="Name"
                         android:textSize="25dp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -57,19 +58,35 @@
                     app:boxCornerRadiusTopStart="20dp">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/input_duration_song"
+                        android:id="@+id/input_title"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:backgroundTint="@color/colorInputText"
                         android:fontFamily="@font/alegreya"
-                        android:hint="Duration (seconds)"
+                        android:hint="Title"
+                        android:textSize="24dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    app:boxCornerRadiusTopStart="20dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_image_artist"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/colorInputText"
+                        android:fontFamily="@font/alegreya"
+                        android:hint="Image"
                         android:textSize="24dp" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/save_song_button"
+            android:id="@+id/save_artist_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -78,6 +95,5 @@
             android:textSize="24dp"
             app:cornerRadius="20dp" />
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
