@@ -28,12 +28,12 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:fontFamily="@font/alegreya"
-                android:id="@+id/album_name"
+                android:id="@+id/title_song"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="40dp"
                 android:layout_width="wrap_content"
-                android:text="Album Name"
+                android:text="Title Song"
                 android:textSize="30dp" />
 
             <com.google.android.material.textview.MaterialTextView

@@ -8,33 +8,24 @@
 
     <fragment
         android:id="@+id/listSong"
-        android:name="com.example.music_player.song.screen.ListArtist"
+        android:name="com.example.music_player.song.screen.ListSong"
         android:label="fragment_list_song"
         tools:layout="@layout/fragment_list_song" >
         <action
             android:id="@+id/action_listSong_to_showMusic"
             app:destination="@id/showMusic" />
         <action
-            android:id="@+id/action_listSong_to_addArtist"
-            app:destination="@id/addArtist" />
+            android:id="@+id/action_listSong_to_addSong"
+            app:destination="@id/addSong" />
     </fragment>
     <fragment
         android:id="@+id/showMusic"
         android:name="com.example.music_player.song.screen.ShowMusic"
         android:label="fragment_show_music"
-        tools:layout="@layout/fragment_show_music" >
-        <action
-            android:id="@+id/action_showMusic_to_addSong"
-            app:destination="@id/addSong" />
-    </fragment>
+        tools:layout="@layout/fragment_show_music" />
     <fragment
         android:id="@+id/addSong"
         android:name="com.example.music_player.song.screen.AddSong"
         android:label="fragment_add_song"
         tools:layout="@layout/fragment_add_song" />
-    <fragment
-        android:id="@+id/addArtist"
-        android:name="com.example.music_player.song.screen.AddArtist"
-        android:label="fragment_add_artist"
-        tools:layout="@layout/fragment_add_artist" />
 </navigation>

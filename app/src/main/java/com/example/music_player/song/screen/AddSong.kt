@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation
+
 import com.example.music_player.R
-import com.example.music_player.room.artistWithSongs.song.Song
+import com.example.music_player.song.model.SongModel
 import com.example.music_player.song.viewModel.SongViewModel
 import kotlinx.android.synthetic.main.fragment_add_song.*
 
@@ -41,23 +43,17 @@ class AddSong : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v) {
             save_song_button -> {
-                val titleSong = input_song_name.text.toString()
-                val durationSong = input_duration_song.text.toString()
-                val idSongArtist = arguments?.getInt("idArtistSong")?:1
-                if (titleSong == "" || durationSong == "") {
+                val titleSong = input_title_song.text.toString()
+                val artistName = input_artist_name.text.toString()
+                val urlArtistPhoto = input_image_artist.text.toString()
+                if (titleSong == "" || artistName == "" || urlArtistPhoto == "") {
                     Toast.makeText(
                         view?.context,
                         "Input Data Song Cann't Be Empty",
                         Toast.LENGTH_LONG
                     ).show()
                 } else {
-                    songViewModel.createNewSong(
-                        Song(
-                            title = titleSong,
-                            durationSong = durationSong,
-                            idArtistSong = idSongArtist
-                        )
-                    )
+                    songViewModel.addSong(SongModel(titleSong, artistName, urlArtistPhoto))
                     Toast.makeText(
                         view?.context,
                         "Success Add New Song!!",
