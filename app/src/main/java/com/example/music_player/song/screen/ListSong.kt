@@ -11,22 +11,19 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.example.music_player.R
-import com.example.music_player.song.recyclerAdapter.ArtistRecycleAdapter
-import com.example.music_player.song.recyclerAdapter.ArtistViewHolder
 import com.example.music_player.song.recyclerAdapter.SongRecycleAdapter
-import com.example.music_player.song.viewModel.ArtistViewModel
 import com.example.music_player.song.viewModel.SongViewModel
 import kotlinx.android.synthetic.main.fragment_list_song.*
 
 /**
  * A simple [Fragment] subclass.
- * Use the [ListArtist.newInstance] factory method to
+ * Use the [ListSong.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ListArtist : Fragment() {
+class ListSong : Fragment() {
 
-    val artistViewModel by activityViewModels<ArtistViewModel>()
-    lateinit var artistRecycleAdapter: ArtistRecycleAdapter
+    val songViewModel by activityViewModels<SongViewModel>()
+    lateinit var songRecycleAdapter: SongRecycleAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,15 +39,20 @@ class ListArtist : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        artist_recycler_view.layoutManager = LinearLayoutManager(activity)
+        song_recyclerView.layoutManager = LinearLayoutManager(activity)
+        songRecycleAdapter =
+            SongRecycleAdapter(
+                songViewModel.songLiveData.value!!
+            )
+        song_recyclerView.adapter = songRecycleAdapter
 
-        artistViewModel.allArtist.observe(viewLifecycleOwner, Observer {
-            artistRecycleAdapter = ArtistRecycleAdapter(it)
-            artist_recycler_view.adapter = artistRecycleAdapter
+        songViewModel.songLiveData.observe(viewLifecycleOwner, Observer {
+            println(it.joinToString())
+            songRecycleAdapter.notifyDataSetChanged()
         })
 
-        add_artist_button.setOnClickListener{
-            Navigation.findNavController(it).navigate(R.id.action_listSong_to_addArtist)
+        floatingActionButton.setOnClickListener{
+            Navigation.findNavController(it).navigate(R.id.action_listSong_to_addSong)
         }
     }
 }

@@ -41,12 +41,12 @@
                     app:boxCornerRadiusTopStart="20dp">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/input_song_name"
+                        android:id="@+id/input_artist_name"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:backgroundTint="@color/colorInputText"
                         android:fontFamily="@font/alegreya"
-                        android:hint="Title"
+                        android:hint="Name"
                         android:textSize="25dp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -57,12 +57,28 @@
                     app:boxCornerRadiusTopStart="20dp">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/input_duration_song"
+                        android:id="@+id/input_title_song"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:backgroundTint="@color/colorInputText"
                         android:fontFamily="@font/alegreya"
-                        android:hint="Duration (seconds)"
+                        android:hint="Title"
+                        android:textSize="24dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    app:boxCornerRadiusTopStart="20dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_image_artist"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:backgroundTint="@color/colorInputText"
+                        android:fontFamily="@font/alegreya"
+                        android:hint="Image"
                         android:textSize="24dp" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
